@@ -3,19 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './share/components/nav/nav.component';
-import { RentalListComponent } from './components/rental-list/rental-list.component';
 
 //routing
 import { AppRoutingModule } from "./app-routing.module";
+import { RentalModule } from './components/rental/rental.module';
+
+//components
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    RentalListComponent
+    NavComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RentalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
