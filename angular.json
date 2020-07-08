@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ngBooking"
+    }
+  },
+  "defaultProject": "ngBooking",
+  "cli": {
+    "analytics": false
+  }
 }
