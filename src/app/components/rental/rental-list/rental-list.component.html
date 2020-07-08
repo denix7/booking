@@ -2,8 +2,8 @@
     <div class="col-md-12">
         <h1>You home around the world</h1>
         <div class="row mt-5">
-            <div *ngFor="let i of [1,2,3]">
-                <app-rental-item></app-rental-item>
+            <div *ngFor="let rental of rentals">
+                <app-rental-item [rental]="rental"></app-rental-item>
             </div>
         </div>
     </div>
