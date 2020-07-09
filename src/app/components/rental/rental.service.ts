@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Rental } from '../../share/models/rental.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RentalService {
 
-    rentals: any[] = [{
-        id: 1,
+    rentals: Rental[] = [{
+        id: "1",
         title: "Central Apartment",
         city: "New York",
         street: "Times Sqaure",
@@ -20,7 +21,7 @@ export class RentalService {
         createdAt: "24/12/2017"
       },
       {
-        id: 2,
+        id: "2",
         title: "Central Apartment 2",
         city: "San Francisco",
         street: "Main street",
@@ -33,7 +34,7 @@ export class RentalService {
         createdAt: "24/12/2017"
       },
       {
-        id: 3,
+        id: "3",
         title: "Central Apartment 3",
         city: "Bratislava",
         street: "Hlavna",
@@ -46,7 +47,7 @@ export class RentalService {
         createdAt: "24/12/2017"
       },
       {
-        id: 4,
+        id: "4",
         title: "Central Apartment 4",
         city: "Berlin",
         street: "Haupt strasse",
@@ -62,28 +63,22 @@ export class RentalService {
   constructor() { }
 
 
-  getRentals() : any
+  getRentals() : Observable<Rental[]>
   {
-      debugger;
-    //return this.rentals;
-    const rentalObservable = new Observable((observer) => {
+    const rentalObservable : Observable<Rental[]> = new Observable((observer) => {
         setTimeout(() => {
-            debugger;
           observer.next(this.rentals);
         }, 1000);
   
         setTimeout(() => {
-            debugger;
           observer.error("error");
         }, 2000);
   
         setTimeout(() => {
-            debugger;
           observer.complete();
         }, 3000);
-  
+        
       });
-      debugger;
       return rentalObservable;
     }
 }
