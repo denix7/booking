@@ -4,19 +4,36 @@ import { CommonModule } from '@angular/common';
 //service
 import { RentalService } from "./rental.service";
 
+//routing
+import { RentalRoutingModule } from "./rental-routing.module";
+
 //components
 import { RentalComponent } from './rental.component';
 import { RentalListComponent } from './rental-list/rental-list.component';
 import { RentalItemComponent } from './rental-item/rental-item.component';
+import { Routes, RouterModule } from '@angular/router';
+import { RentalDetailComponent } from './rental-detail/rental-detail.component';
 
+const routes : Routes = [
+  {
+      path: 'rentals',
+      component: RentalComponent,
+      children: [
+          {path : '', component : RentalListComponent},
+          {path: ':rentalId', component : RentalDetailComponent}
+      ]
+  }
+];
 @NgModule({
   declarations: [
     RentalComponent,
     RentalListComponent,
-    RentalItemComponent
+    RentalItemComponent,
+    RentalDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(routes)
   ],
   providers: [
     RentalService

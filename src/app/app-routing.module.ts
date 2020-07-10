@@ -5,15 +5,7 @@ import { RentalListComponent } from './components/rental/rental-list/rental-list
 import { RentalComponent } from './components/rental/rental.component';
 
 const routes : Routes = [
-    {
-        path: '',
-        component: RentalComponent
-    },
-    {
-        path: '**',
-        pathMatch: 'full',
-        redirectTo: 'rental'
-    }
+    {path : '', redirectTo: 'rentals', pathMatch: 'full'},
 ];
 
 @NgModule({
