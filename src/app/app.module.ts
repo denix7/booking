@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//components
 import { AppComponent } from './app.component';
 import { NavComponent } from './share/components/nav/nav.component';
 
@@ -8,7 +9,6 @@ import { NavComponent } from './share/components/nav/nav.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { RentalModule } from './components/rental/rental.module';
 
-//components
 
 @NgModule({
   declarations: [
