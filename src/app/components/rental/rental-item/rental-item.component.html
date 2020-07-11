@@ -1,8 +1,10 @@
-<div class="card" style="width: 18rem;">
-    <img [src]="rental.image" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{rental.title}}</h5>
-        <p class="card-text">{{rental.description}}</p>
-        <a href="#" class="btn btn-primary">See rental</a>
+<a [routerLink]="['/rentals', rental.id]" routerLinkActive="router-link-active" >
+    <div class="card" style="width: 18rem;">
+        <img [src]="rental.image" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{rental.title}}</h5>
+            <p class="card-text">{{rental.description}}</p>
+            <a [routerLink]="['/rentals', rental.id]" routerLinkActive="router-link-active"  class="btn btn-primary">More info</a>
+        </div>
     </div>
-</div>
+</a>

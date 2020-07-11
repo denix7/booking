@@ -7,11 +7,11 @@ const routes : Routes = [
         redirectTo: 'rentals', 
         pathMatch: 'full'
     },
-    {
-        path : '**', 
-        redirectTo: 'rentals', 
-        pathMatch: 'full'
-    },
+    // {
+    //     path : '**', 
+    //     redirectTo: 'rentals', 
+    //     pathMatch: 'full'
+    // },
 ];
 
 @NgModule({
