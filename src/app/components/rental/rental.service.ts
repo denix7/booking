@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, observable } from 'rxjs';
 import { Rental } from '../../share/models/rental.model';
 
 @Injectable({
@@ -65,20 +65,34 @@ export class RentalService {
 
   getRentals() : Observable<Rental[]>
   {
+    // return new Observable<Rental[]>((observer) => {
     const rentalObservable : Observable<Rental[]> = new Observable((observer) => {
         setTimeout(() => {
           observer.next(this.rentals);
         }, 1000);
   
-        setTimeout(() => {
-          observer.error("error");
-        }, 2000);
+        // setTimeout(() => {
+        //   observer.error("error");
+        // }, 2000);
   
-        setTimeout(() => {
-          observer.complete();
-        }, 3000);
-        
+        // setTimeout(() => {
+        //   observer.complete();
+        // }, 3000);
+      
       });
       return rentalObservable;
+    }
+
+    getRentalById(id : string) : Observable<Rental>
+    {
+      return new Observable<Rental>( (observer) => {
+        setTimeout(() => {
+        const rentalFounded = this.rentals.find((rental) => {
+          return rental.id == id;
+        });
+        
+        observer.next(rentalFounded);
+        }, 1000);
+      }) 
     }
 }
