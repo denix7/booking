@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const config = require('./config/dev');
 const FakeDb = require('./fake-db');
 
+const rentalRoutes = require('./routes/rentals');
+
 mongoose.connect(config.database, {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
     if(err)
         console.log(err);
@@ -25,3 +27,5 @@ app.listen(PORT, ()=> {
 app.get('/rentals', (req, res) => {
    res.json({'success' : true});
 });
+
+app.use('/api/v1/rentals', rentalRoutes);
