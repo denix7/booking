@@ -1,12 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config/dev');
+const FakeDb = require('./fake-db');
 
 mongoose.connect(config.database, {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
     if(err)
         console.log(err);
-    else 
+    else
+    {
+        const fakeDb = new FakeDb();
+        fakeDb.seedDb();
         console.log('Db connected');
+    }
 });
 
 const app = express();
