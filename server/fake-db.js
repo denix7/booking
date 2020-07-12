@@ -48,7 +48,13 @@ class FakeDb {
 
     seedDb()
     {
+        this.cleanDb();
         this.pushRentalsToDb();
+    }
+
+    async cleanDb()
+    {
+        await Rental.deleteMany({});
     }
 }
 
