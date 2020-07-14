@@ -28,7 +28,7 @@ export class RentalDetailComponent implements OnInit {
   {
     this.rentalService.getRentalById(id).subscribe(
       (rental: Rental) => {
-        this.rental = rental;
+        this.rental = rental['rental'];
         console.warn(this.rental);
     },
       (err) => {
