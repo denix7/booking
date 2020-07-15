@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+h1{
+    color: #1D1E23;
+}
+
+h2{
+    font-size: 1.2em;
+    font-weight: lighter;
+}
+
+.img-thumbnail{
+    border-radius: 20px;
+}
+
+.rental-city
+{
+    color: #A8A8A8;
+}
+
+.rental-room-info span{
+    margin-right: 1em;
+    color: #A8A8A8;
+}
+
+.rental-assets {
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+.rental-assets div{
+    margin-bottom: 1.5em;
+}
