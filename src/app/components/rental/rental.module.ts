@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {NgPipesModule} from 'ngx-pipes';
 
 //service
 import { RentalService } from "./rental.service";
@@ -22,7 +23,8 @@ import { RentalDetailComponent } from './rental-detail/rental-detail.component';
   ],
   imports: [
     CommonModule,
-    RentalRoutingModule
+    RentalRoutingModule,
+    NgPipesModule
   ],
   providers: [
     RentalService
