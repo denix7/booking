@@ -8,8 +8,9 @@ import { NavComponent } from './share/components/nav/nav.component';
 
 //routing
 import { AppRoutingModule } from "./app-routing.module";
-import { RentalModule } from './components/rental/rental.module';
 
+//modules
+import { RentalModule } from './components/rental/rental.module';
 
 @NgModule({
   declarations: [
