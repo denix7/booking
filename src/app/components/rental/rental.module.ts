@@ -14,12 +14,16 @@ import { RentalListComponent } from './rental-list/rental-list.component';
 import { RentalItemComponent } from './rental-item/rental-item.component';
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
 
+//pipe
+import { UppercasePipe } from "../../share/pipes/uppercase.pipe";
+
 @NgModule({
   declarations: [
     RentalComponent,
     RentalListComponent,
     RentalItemComponent,
-    RentalDetailComponent
+    RentalDetailComponent,
+    UppercasePipe
   ],
   imports: [
     CommonModule,
