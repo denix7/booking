@@ -10,8 +10,8 @@ mongoose.connect(config.database, {useNewUrlParser: true, useUnifiedTopology: tr
         console.log(err);
     else
     {
-        const fakeDb = new FakeDb();
-        fakeDb.seedDb();
+        // const fakeDb = new FakeDb();
+        // fakeDb.seedDb();
         console.log('Db connected');
     }
 });
