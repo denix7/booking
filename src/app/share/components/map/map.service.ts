@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CamelizePipe } from 'ngx-pipes';
 
 @Injectable({
   providedIn: 'root'
@@ -7,22 +8,27 @@ import { Observable } from 'rxjs';
 export class MapService {
 
   private geoCoder;
+  private locationCache: any = {};
 
-  constructor() { }
+  constructor(private camelizePipe:CamelizePipe) { }
+
+  public cacheLocation(location:string, coordinates:any){
+    const camelizedLocation = this.camelizePipe.transform(location);
+    this.locationCache[camelizedLocation] = coordinates;
+  }
 
   public geoCodeLocation(location:string): Observable<any>{
-    // console.log(location);
     this.geoCoder = new (<any>window).google.maps.Geocoder();
     
     return new Observable((observer)=> {
       this.geoCoder.geocode({address: location}, (result, status) => {
-        console.log(result);
-        console.log(status);
-        // console.log(location);
         if(status === 'OK'){
           const geometry = result[0].geometry.location;
-          console.warn(geometry.lat(), geometry.lng())
-          observer.next({lat: geometry.lat(), lng: geometry.lng()});
+
+          const coordinates = {lat: geometry.lat(), lng: geometry.lng()};
+          this.cacheLocation(location, coordinates);
+
+          observer.next(coordinates);
         }else{
           observer.error('Location could not be geocoded');
         }

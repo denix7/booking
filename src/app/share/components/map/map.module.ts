@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from "../map/map.component";
 
-import {NgPipesModule} from 'ngx-pipes';
+import {CamelizePipe} from 'ngx-pipes';
 @NgModule({
   declarations: [
     MapComponent
@@ -14,9 +14,10 @@ exports: [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDIgQFvMRk4Q2fz7po3hZ7RY4WsGnTP20c'
     }),
-    NgPipesModule
   ],
-  providers: [],
+  providers: [
+    CamelizePipe
+  ],
   bootstrap: []
 })
 export class MapModule { }
